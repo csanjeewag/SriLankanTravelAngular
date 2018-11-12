@@ -1,0 +1,8 @@
+#pageImage{
+    height: 50px;
+    width: 100px;;
+}
+#headerImage{
+    height: 150px;
+    z-index: -1;
+}

@@ -1,0 +1,14 @@
+#headerImage{
+    height: 150px;
+    z-index: -1;
+}
+#pageImage{
+    width: 100%;
+}
+#im{
+    float: left;
+   
+}
+#dis{
+    text-align: left;
+}

@@ -1,0 +1,38 @@
+
+
+<div class="form-row">
+  <div class="form-group col-md-10">
+          <div class="card">
+                  <h5 class="card-header"><h2>Sri Lankan Travelling</h2>   <img class="card-img-top" src="assets/back.jpeg" alt="Cinque Terre" id="headerImage">{{page.topic}} </h5>
+                  <div class="card-body">
+                      <h5 class="card-title"></h5>
+                      <div class="form-row">
+                          <div class="form-group col-md-6">
+                              <img class="card-img-top" [src]="imageUrl+page.defImage" alt="Cinque Terre" id="pageImage">
+                              
+                            </div>
+                            <div *ngIf="!(page.dis1=='null')"  class="form-group col-md-6" id="dis">
+                              {{page.dis1}}
+                              </div>
+                      </div>
+                      <div class="form-row">
+                          <div *ngIf="!(page.dis2=='null')" class="form-group col-md-6" id="dis">
+                              {{page.dis2}}
+                            </div>
+                            <div *ngIf="!(page.dis3=='null')" class="form-group col-md-6" id="dis">
+                              {{page.dis3}}
+                              </div>
+                      
+                          <div class="form-group col-md-4" *ngFor="let p of images; index as i;">
+                            
+                              <img  class="card-img-top" [src]="imageUrl+images[i].imageId" alt="Cinque Terre" id="pageImage">
+                           
+                            </div>
+                            
+                      </div>
+
+                    </div>
+
+          </div>
+  </div>
+</div>

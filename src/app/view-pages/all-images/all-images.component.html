@@ -1,0 +1,37 @@
+
+
+
+<div class="form-row">
+  <div class="form-group col-md-10 container">
+          <div class="card">
+                  <h5 class="card-header"><h2>Sri Lankan Travelling</h2>   <img class="card-img-top" src="assets/back.jpeg" alt="Cinque Terre" id="headerImage"> </h5>
+                  <div class="card-body">
+                      <h5 class="card-title"></h5>
+                      <div class="form-row">
+      
+
+                          <div class="form-group col-md-3" *ngFor="let p of Images; index as i;">
+                             <div class="card">
+                              <h5 class="card-header"> <img  class="card-img-top" [src]="imageUrl+p.imageId" alt="Cinque Terre" id="pageImage">
+                                
+                              </h5>
+                              <div class="card-body">
+                                  <h5 class="card-title"> </h5>
+                                  <div *ngIf="(p.isActive)"><button type="button" id="update" class="btn  btn-danger" (click)=DeActivePage(p.imageId)>Deactive</button></div>
+                                  <div *ngIf="!(p.isActive)"><button type="button" id="update" class="btn  btn-success" (click)=ActivePage(p.imageId)>Active</button></div>
+                                
+                              </div>
+                            </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+          </div>
+  </div>
+</div>
+
+
+
+
+

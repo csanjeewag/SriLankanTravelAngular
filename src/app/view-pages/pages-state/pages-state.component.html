@@ -1,0 +1,42 @@
+
+
+<div class="form-row">
+  <div class="form-group col-md-10 container">
+          <div class="card">
+                  <h5 class="card-header"><h2>Sri Lankan Travelling</h2>   <img class="card-img-top" src="assets/back.jpeg" alt="Cinque Terre" id="headerImage"></h5>
+                 
+<table class="table table-hover">
+  <thead>
+  <tr >
+      <th>ID</th>
+    <th>Topic</th>
+    <th>Sub Topic</th>
+    <th>State</th>
+    <th>View Page</th>
+    <th> Update</th>
+    <th>Active/Deactive</th>
+    <th >All Images </th>
+   
+  </tr></thead>
+  <tbody>
+  <tr *ngFor="let p of pages" >
+    <td>{{p.id}}</td>
+    <td>{{p.topic}}</td>
+    <td>{{p.subTopic}}</td>
+    <td>{{p.isActive}}</td>
+    <td (click)=gotopage(p.id)><img  class="card-img-top" [src]="imageUrl+p.imageId" alt="Cinque Terre" id="pageImage" (click)=gotopage(p.id)></td>
+    
+
+    <td><button type="button" id="details" class="btn  btn-default" (click)=updatepage(p.id)>Update</button></td>
+    
+          <td *ngIf="(p.isActive)"><button type="button" id="update" class="btn  btn-danger" (click)=DeActivePage(p.id)>Deactive</button></td>
+          <td *ngIf="!(p.isActive)"><button type="button" id="update" class="btn  btn-success" (click)=ActivePage(p.id)>Active</button></td>
+          <td ><button type="button" id="update" class="btn  btn-success" (click)=AllImage(p.id)>All Images</button></td>
+          
+   
+  </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
