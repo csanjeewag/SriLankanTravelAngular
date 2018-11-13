@@ -28,7 +28,7 @@ public url = "http://localhost:4200/view/side/travel/"
     this.repository.getData('getpagestopic')
     .subscribe(res => {
       this.pages = res ;
-      console.log(res);
+  
   },
     (error) => {
     

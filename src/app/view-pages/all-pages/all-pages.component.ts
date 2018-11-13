@@ -21,7 +21,7 @@ imageUrl : string = "http://localhost:5308/";
     this.repository.getData('gettopicid')
     .subscribe(res => {
       this.pages = res ;
-      console.log(res);
+     
   },
     (error) => {
     

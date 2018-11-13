@@ -1,0 +1,35 @@
+
+
+<div class="form-row">
+  <div class="form-group col-md-10 container">
+          <div class="card">
+                  <h5 class="card-header"><h2>Sri Lankan Travelling</h2>   <img class="card-img-top" src="assets/back.jpeg" alt="Cinque Terre" id="headerImage"></h5>
+                
+<table class="table table-hover">
+  <thead>
+  <tr >
+      <th>Full Name</th>
+    <th>Email</th>
+    <th>Register Date</th>
+    <th>Role</th>
+   
+   
+  </tr></thead>
+  <tbody>
+  <tr *ngFor="let u of users" >
+    <td>{{u.fname}} {{u.lname}}</td>
+    <td>{{u.email}}</td>
+    <td>{{u.startDate}}</td>
+    <td>{{u.role}}</td>
+    <!-- <td (click)=gotopage(p.id)><img  class="card-img-top" [src]="imageUrl+p.imageId" alt="Cinque Terre" id="pageImage" (click)=gotopage(p.id)></td>
+     -->
+          <td *ngIf="u.role == 'admin'"><button type="button" id="update" class="btn  btn-danger" (click)=ToAdmin(p.id)>As Admin</button></td>
+          <td  *ngIf="u.role == 'user'"><button type="button" id="update" class="btn  btn-success" (click)=ToUser(p.id)>As User</button></td>
+         
+   
+  </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>

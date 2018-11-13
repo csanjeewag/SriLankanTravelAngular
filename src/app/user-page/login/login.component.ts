@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router,private route : ActivatedRoute,private repository:RepositoryService,private fb: FormBuilder) { }
   public signupForm:FormGroup;
   public loginForm:FormGroup;
-
+public result:any;
   ngOnInit() {
     this.loginForm = new FormGroup({
       email: new FormControl('',[Validators.required]),
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   }
 
   public signup( value){
-    console.log(value);
+   
     if (this.signupForm.valid) {
      
       let formData = new FormData();
@@ -50,6 +50,9 @@ export class LoginComponent implements OnInit {
       this.repository.postFile(apiUrl, formData)
       
         .subscribe(res =>  {
+          this.result = res
+          localStorage.setItem('token',this.result.token );
+           
           this.router.navigate(['view/side/travel']);
                     },
           (error => {
@@ -62,7 +65,7 @@ export class LoginComponent implements OnInit {
   }
 
   public login(value){
-    console.log(value);
+   
     if (this.loginForm.valid) {
      
       let formData = new FormData();
@@ -75,8 +78,11 @@ export class LoginComponent implements OnInit {
       this.repository.postFile(apiUrl, formData)
       
         .subscribe(res =>  {
-          console.log(res);
+          this.result = res
+         localStorage.setItem('token',this.result.token );
+          
           this.router.navigate(['view/side/travel']);
+
                     },
           (error => {
            // this.Message = "Adding Page Failed!";

@@ -10,7 +10,7 @@ import { UpdatePageComponent } from './update-page/update-page.component';
 import { AllPagesComponent } from './all-pages/all-pages.component';
 import { PagesStateComponent } from './pages-state/pages-state.component';
 import { AllImagesComponent } from './all-images/all-images.component';
-
+import { AuthGuradGuard } from "./../AuthGuard/auth-gurad.guard";
 @NgModule({
   imports: [
     CommonModule,
@@ -18,9 +18,9 @@ import { AllImagesComponent } from './all-images/all-images.component';
     FormsModule,
     RouterModule.forChild([
       { path: 'addview', component: AddViewComponent},
-      { path: 'admin', component: PagesStateComponent},
-      { path: 'updateview/:id', component: UpdatePageComponent},
-      { path: 'allimage/:id', component: AllImagesComponent},
+      { path: 'admin', component: PagesStateComponent,canActivate:[AuthGuradGuard],data: { expectedRole1: 'admin'}},
+      { path: 'updateview/:id', component: UpdatePageComponent,canActivate:[AuthGuradGuard],data: { expectedRole1: 'user'}},
+      { path: 'allimage/:id', component: AllImagesComponent,canActivate:[AuthGuradGuard],data: { expectedRole1: 'user'}},
       { path: 'side', component: SideBarComponent,children:[
         { path: 'travel', component: AllPagesComponent },
         { path: 'travel/:id', component: ViewsComponent },
