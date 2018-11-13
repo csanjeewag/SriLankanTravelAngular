@@ -10,23 +10,30 @@
         <a class="nav-link" routerLink="/view/addview" routerLinkActive="active ">Add View</a>
       </li>
       
-        <li class="nav-item">
+        <li *ngIf="isAdmin" class="nav-item">
           <a class="nav-link" routerLink="/view/admin" routerLinkActive="active ">Admin</a>
+        </li>
+        <li *ngIf="isUser"  class="nav-item">
+          <a class="nav-link" routerLink="/view/admin" routerLinkActive="active ">User</a>
         </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/view/side/travel" routerLinkActive="active ">travel page</a>
       </li>
       
     </ul>
-     <li class="nav-item dropdown" >
+     <li class="nav-item dropdown" *ngIf="islogged" >
       <button class="nav-link dropdown-toggle btn btn-outline-secondary" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-       
+       {{UserName}}
       </button>
-      <div class="dropdown-menu bg-dark text-light" aria-labelledby="navbarDropdownMenuLink">
-        <a class="dropdown-item text-light" href="/profile/profile">Profile</a>
+      <div  class="dropdown-menu bg-dark text-light" aria-labelledby="navbarDropdownMenuLink">
         <a class="dropdown-item text-light" (click)="logout()" href="#">Log Out</a>
         
       </div>
+      
+    </li>
+    <li class="nav-item dropdown" *ngIf="!(islogged)" >
+      <a class="nav-link" routerLink="/user/login" routerLinkActive="active ">Sign Up</a>
+     
     </li>
     <span class="navbar-text">
    </span>

@@ -4,6 +4,7 @@ import { FormBuilder,FormControl, FormGroup, Validators, AbstractControl, Valida
 import { RepositoryService } from "./../../ShareData/repository.service";
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { AuthServiceService } from "./../../AuthGuard/auth-service.service";
 
 @Component({
   selector: 'app-add-view',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class AddViewComponent implements OnInit {
 
-  constructor(private router: Router,private route : ActivatedRoute,private repository:RepositoryService,private fb: FormBuilder) { }
+  constructor(private auth:AuthServiceService, private router: Router,private route : ActivatedRoute,private repository:RepositoryService,private fb: FormBuilder) { }
 
   public pageForm:FormGroup;
   public pageForms:FormGroup;
@@ -20,8 +21,10 @@ export class AddViewComponent implements OnInit {
   public Message:any;
   public ImageUrl: Array<string> = [];
    public FileImage: Array<File> = [];
+   public Author:any;
   ngOnInit() {
 
+    this.Author = this.auth.tokencheckId();
     
     this.pageForm = this.fb.group({
       id:[null,Validators.required],
@@ -66,6 +69,7 @@ export class AddViewComponent implements OnInit {
       formData.append('Id',pageFormvalue.id,);
       formData.append('Topic',pageFormvalue.topic);
       formData.append('SubTopic',pageFormvalue.subtopic);
+      formData.append('Author', this.Author);
       formData.append('Type',pageFormvalue.type);
       formData.append('Dis1',pageFormvalue.dis1);
       formData.append('Dis2',pageFormvalue.dis2);

@@ -11,8 +11,9 @@ import { Router,ParamMap } from '@angular/router';
 })
 export class ViewsComponent implements OnInit {
 
-  imageUrl : string = "http://localhost:5308/";
+ 
   constructor(private repository:RepositoryService,private fb: FormBuilder, private route: ActivatedRoute,private router: Router) { }
+  public  imageUrl : string = this.repository.imageUrl;
   public Id:any;
   public page:any;
   public images:any;

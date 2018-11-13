@@ -16,6 +16,7 @@ export class RepositoryService {
 
   public urlAddress : string = environment.employee_url;
   public islogged:any;
+  public imageUrl : string = environment.imageUrl ;
 
   constructor( private http: HttpClient) { }
 
@@ -76,7 +77,7 @@ export class RepositoryService {
   }
   private generateHeadersfile() {
     return {
-      headers: new HttpHeaders({//'Content-Type': 'multipart/form-data',
+      headers: new HttpHeaders({
                                 
                                 'Authorization': 'bearer '+localStorage.getItem('token'),
                                 'enctype': 'multipart/form-data'

@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   employee_url :"http://localhost:5308/api",
+  imageUrl : "http://localhost:5308/"
 };
 
 /*

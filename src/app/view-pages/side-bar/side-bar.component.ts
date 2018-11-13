@@ -14,7 +14,7 @@ export class SideBarComponent implements OnInit {
 public pages:any;
 public Id:any;
 
-public url = "http://localhost:4200/view/side/travel/"
+
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.Id = params.get("id")

@@ -12,6 +12,7 @@
     <th>Email</th>
     <th>Register Date</th>
     <th>Role</th>
+    <th>Change State</th>
    
    
   </tr></thead>
@@ -23,8 +24,8 @@
     <td>{{u.role}}</td>
     <!-- <td (click)=gotopage(p.id)><img  class="card-img-top" [src]="imageUrl+p.imageId" alt="Cinque Terre" id="pageImage" (click)=gotopage(p.id)></td>
      -->
-          <td *ngIf="u.role == 'admin'"><button type="button" id="update" class="btn  btn-danger" (click)=ToAdmin(p.id)>As Admin</button></td>
-          <td  *ngIf="u.role == 'user'"><button type="button" id="update" class="btn  btn-success" (click)=ToUser(p.id)>As User</button></td>
+          <td *ngIf="u.role == 'user'"><button type="button" id="update" class="btn  btn-danger" (click)=ToAdmin(u.email)>As Admin</button></td>
+          <td  *ngIf="u.role == 'admin'"><button type="button" id="update" class="btn  btn-success" (click)=ToUser(u.email)>As User</button></td>
          
    
   </tr>

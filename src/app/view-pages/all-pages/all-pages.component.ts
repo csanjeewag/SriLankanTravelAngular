@@ -12,7 +12,7 @@ export class AllPagesComponent implements OnInit {
 
   constructor(private route : ActivatedRoute,private router: Router,private repository:RepositoryService,private fb: FormBuilder) { }
 public pages;
-imageUrl : string = "http://localhost:5308/";
+public  imageUrl : string = this.repository.imageUrl;
   ngOnInit() {
     this.getpages();
   }

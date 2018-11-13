@@ -17,10 +17,10 @@ import { AuthGuradGuard } from "./../AuthGuard/auth-gurad.guard";
     ReactiveFormsModule,
     FormsModule,
     RouterModule.forChild([
-      { path: 'addview', component: AddViewComponent},
+      { path: 'addview', component: AddViewComponent,canActivate:[AuthGuradGuard],data: { expectedRole1: 'user',expectedRole2: 'admin'}},
       { path: 'admin', component: PagesStateComponent,canActivate:[AuthGuradGuard],data: { expectedRole1: 'admin'}},
-      { path: 'updateview/:id', component: UpdatePageComponent,canActivate:[AuthGuradGuard],data: { expectedRole1: 'user'}},
-      { path: 'allimage/:id', component: AllImagesComponent,canActivate:[AuthGuradGuard],data: { expectedRole1: 'user'}},
+      { path: 'updateview/:id', component: UpdatePageComponent,canActivate:[AuthGuradGuard],data: { expectedRole2: 'admin'}},
+      { path: 'allimage/:id', component: AllImagesComponent,canActivate:[AuthGuradGuard],data: { expectedRole2: 'admin'}},
       { path: 'side', component: SideBarComponent,children:[
         { path: 'travel', component: AllPagesComponent },
         { path: 'travel/:id', component: ViewsComponent },

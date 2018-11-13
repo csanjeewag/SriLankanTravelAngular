@@ -25,7 +25,7 @@ export class AuthServiceService {
      else{return false}
   }
 
-  public isRC(){
+  public isUser(){
     if(this.tokencheckRole()=="user"){
       return true;
     }

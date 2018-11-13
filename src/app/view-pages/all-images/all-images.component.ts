@@ -12,7 +12,7 @@ export class AllImagesComponent implements OnInit {
 
   constructor(private route : ActivatedRoute,private router: Router,private repository:RepositoryService) { }
   public pages;
-  public imageUrl : string = "http://localhost:5308/";
+  public  imageUrl : string = this.repository.imageUrl;
 public Images:any;
   ngOnInit() {
     this.route.paramMap.subscribe((params:ParamMap)=>{
@@ -34,14 +34,14 @@ public Images:any;
 
   public DeActivePage(id){
     let apiUrl = 'deactiveimage';
-    console.log(id);
+    
     let formData = new FormData();
       formData.append('Id',id);
 
     this.repository.postFile(apiUrl, formData)
     
       .subscribe(res =>  {
-        
+        location.reload();
                   },
         (error => {
           // this.Message="role Created Failed,Try Again!";

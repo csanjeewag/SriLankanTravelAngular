@@ -27,4 +27,28 @@ export class UsersPageComponent implements OnInit {
     
     })
   }
+  public ToAdmin(email){
+    this.repository.getData('toadmin/'+email)
+    .subscribe(res => {
+      location.reload();
+   
+  },
+    (error) => {
+    
+    })
+  }
+
+  public ToUser(email){
+    this.repository.getData('touser/'+email)
+    .subscribe(res => {
+      location.reload();
+   
+  },
+    (error) => {
+    
+    })
+  }
+
+
 }
+
