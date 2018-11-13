@@ -10,6 +10,7 @@ import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [
   { path: '', redirectTo: 'profile/login', pathMatch: 'full' },
   { path: 'view', loadChildren: "./view-pages/view-pages.module#ViewPagesModule" },
+  { path: 'user', loadChildren: "./user-page/user-page.module#UserPageModule" },
   { path: 'login', component: MainNavBarComponent },
   
  // { path: '**', redirectTo: '', pathMatch: 'full'}

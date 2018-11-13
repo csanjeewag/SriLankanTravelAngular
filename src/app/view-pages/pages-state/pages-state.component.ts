@@ -46,7 +46,8 @@ export class PagesStateComponent implements OnInit {
 
     this.repository.getData('deactivepage/'+id)
     .subscribe(res => {
-      this.router.navigate(['view/side/travel/']);
+      //this.router.navigate(['view/side/travel/']);
+      location.reload();
   },
     (error) => {
     
@@ -56,7 +57,8 @@ export class PagesStateComponent implements OnInit {
 
     this.repository.getData('activepage/'+id)
     .subscribe(res => {
-      this.router.navigate(['view/side/travel/'+id]);
+     // this.router.navigate(['view/side/travel/'+id]);
+     location.reload();
   },
     (error) => {
     

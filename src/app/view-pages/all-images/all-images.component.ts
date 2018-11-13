@@ -58,7 +58,7 @@ public Images:any;
     this.repository.postFile(apiUrl, formData)
     
       .subscribe(res =>  {
-      
+        location.reload();
                   },
         (error => {
           // this.Message="role Created Failed,Try Again!";
