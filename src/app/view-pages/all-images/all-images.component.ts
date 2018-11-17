@@ -22,7 +22,7 @@ public Images:any;
   }
 
   public  getimages(id){
-    this.repository.getData('allgetimage/'+id)
+    this.repository.getData('file/allgetimage/'+id)
     .subscribe(res => {
       this.Images = res ;
      
@@ -33,7 +33,7 @@ public Images:any;
   }
 
   public DeActivePage(id){
-    let apiUrl = 'deactiveimage';
+    let apiUrl = 'file/deactiveimage';
     
     let formData = new FormData();
       formData.append('Id',id);
@@ -50,7 +50,7 @@ public Images:any;
   
   }
   public ActivePage(id){
-    let apiUrl = 'activeimage';
+    let apiUrl = 'file/activeimage';
     
     let formData = new FormData();
       formData.append('Id',id);

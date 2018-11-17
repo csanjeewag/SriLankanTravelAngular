@@ -11,6 +11,7 @@ import { AllPagesComponent } from './all-pages/all-pages.component';
 import { PagesStateComponent } from './pages-state/pages-state.component';
 import { AllImagesComponent } from './all-images/all-images.component';
 import { AuthGuradGuard } from "./../AuthGuard/auth-gurad.guard";
+import { RegisterSignupComponent } from './register-signup/register-signup.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -18,7 +19,7 @@ import { AuthGuradGuard } from "./../AuthGuard/auth-gurad.guard";
     FormsModule,
     RouterModule.forChild([
       { path: 'addview', component: AddViewComponent,canActivate:[AuthGuradGuard],data: { expectedRole1: 'user',expectedRole2: 'admin'}},
-      { path: 'admin', component: PagesStateComponent,canActivate:[AuthGuradGuard],data: { expectedRole1: 'admin'}},
+      { path: 'admin', component: PagesStateComponent,canActivate:[AuthGuradGuard],data: { expectedRole1: 'admin', expectedRole2: 'user'}},
       { path: 'updateview/:id', component: UpdatePageComponent,canActivate:[AuthGuradGuard],data: { expectedRole2: 'admin'}},
       { path: 'allimage/:id', component: AllImagesComponent,canActivate:[AuthGuradGuard],data: { expectedRole2: 'admin'}},
       { path: 'side', component: SideBarComponent,children:[
@@ -28,6 +29,6 @@ import { AuthGuradGuard } from "./../AuthGuard/auth-gurad.guard";
       ]}
     ])
   ],
-  declarations: [SideBarComponent, ViewsComponent, AddViewComponent, UploadPageComponent, UpdatePageComponent, AllPagesComponent, PagesStateComponent, AllImagesComponent]
+  declarations: [SideBarComponent, ViewsComponent, AddViewComponent, UploadPageComponent, UpdatePageComponent, AllPagesComponent, PagesStateComponent, AllImagesComponent, RegisterSignupComponent]
 })
 export class ViewPagesModule { }

@@ -59,10 +59,10 @@ export class RepositoryService {
 
 
   private createCompleteRoute(route: string, envAddress: string) {
-    return `${envAddress}/file/${route}`;
+    return `${envAddress}/${route}`;
   }
   private createCompleteRoutefile(route: string, envAddress: string) {
-    return `${envAddress}/file/${route}`;
+    return `${envAddress}/${route}`;
   }
   private createUserCompleteRoute(route: string, envAddress: string) {
     return `${envAddress}/employee/${route}`;

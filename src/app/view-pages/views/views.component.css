@@ -15,3 +15,19 @@
 #author{
     text-align: right;
 }
+#place h4{
+    text-align: left;
+}
+#place h6{
+    text-align: left;
+}
+#close{
+    color: brown;
+}
+#googlelink{
+    color: rgb(25, 95, 100);
+}
+#link{
+    color: rgb(25, 95, 100);
+    text-align: left;
+}

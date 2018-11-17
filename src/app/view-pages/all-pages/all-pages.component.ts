@@ -18,7 +18,7 @@ public  imageUrl : string = this.repository.imageUrl;
   }
 
   public  getpages(){
-    this.repository.getData('gettopicid')
+    this.repository.getData('file/gettopicid')
     .subscribe(res => {
       this.pages = res ;
      

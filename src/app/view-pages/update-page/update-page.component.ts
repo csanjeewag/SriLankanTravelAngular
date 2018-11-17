@@ -38,7 +38,10 @@ import { Router,ParamMap } from '@angular/router';
         dis1:[null,Validators.required],
         dis2:[null],
         dis3:[null],
-        image :[null]
+        district:[null,Validators.required],
+        town:[null,Validators.required],
+        image :[null],
+        location:[null]
        
       });
      
@@ -70,9 +73,13 @@ import { Router,ParamMap } from '@angular/router';
         formData.append('Topic',pageFormvalue.topic);
         formData.append('SubTopic',pageFormvalue.subtopic);
         formData.append('Type',pageFormvalue.type);
+        formData.append('District', pageFormvalue.district);
+        formData.append('Town',pageFormvalue.town);
         formData.append('Dis1',pageFormvalue.dis1);
         formData.append('Dis2',pageFormvalue.dis2);
         formData.append('Dis3',pageFormvalue.dis3);
+        formData.append('Location',pageFormvalue.location);
+        
         if(this.FileImage[0]== null){
           formData.append('DefImage', this.Page.defImage);
         }
@@ -83,11 +90,12 @@ import { Router,ParamMap } from '@angular/router';
        
         formData.append('Image', this.FileImage[1]);
         formData.append('Image', this.FileImage[2]);
-        
+        formData.append('Image', this.FileImage[3]);
+        formData.append('Image', this.FileImage[4]);
        
   
         
-        let apiUrl = 'uploadpage';
+        let apiUrl = 'file/uploadpage';
       
         this.repository.postFile(apiUrl, formData)
         
@@ -118,7 +126,7 @@ import { Router,ParamMap } from '@angular/router';
 
 
     public  getpage(id){
-      this.repository.getData('getpage/'+id)
+      this.repository.getData('file/getpage/'+id)
       .subscribe(res => {
         this.Page = res ;
         
@@ -130,7 +138,7 @@ import { Router,ParamMap } from '@angular/router';
     }
   
     public  getimages(id){
-      this.repository.getData('getimage/'+id)
+      this.repository.getData('file/getimage/'+id)
       .subscribe(res => {
         this.Images = res ;
         
@@ -148,6 +156,10 @@ import { Router,ParamMap } from '@angular/router';
       this.pageForm.controls['dis1'].setValue(this.Page.dis1);
       this.pageForm.controls['dis2'].setValue(this.Page.dis2);
       this.pageForm.controls['dis3'].setValue(this.Page.dis3);
+      this.pageForm.controls['subtopic'].setValue(this.Page.subTopic);
+      this.pageForm.controls['district'].setValue(this.Page.district);
+      this.pageForm.controls['town'].setValue(this.Page.town);
+      this.pageForm.controls['location'].setValue(this.Page.location);
       
       this.pageForm.controls['image'].setValue(this.Page.defImage);
     }

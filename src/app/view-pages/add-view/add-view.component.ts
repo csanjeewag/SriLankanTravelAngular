@@ -27,14 +27,17 @@ export class AddViewComponent implements OnInit {
     this.Author = this.auth.tokencheckId();
     
     this.pageForm = this.fb.group({
-      id:[null,Validators.required],
+      id:[null],
       topic:[null,Validators.required],
       subtopic:[null],
       type:[null,Validators.required],
       dis1:[null],
       dis2:[null],
       dis3:[null],
-      image :[null,Validators.required]
+      district:[null,Validators.required],
+      town:[null,Validators.required],
+      image :[null,Validators.required],
+      location:[null]
      
     });
     
@@ -66,22 +69,24 @@ export class AddViewComponent implements OnInit {
     if (this.pageForm.valid) {
      
       let formData = new FormData();
-      formData.append('Id',pageFormvalue.id,);
+      formData.append('Id',"");
       formData.append('Topic',pageFormvalue.topic);
       formData.append('SubTopic',pageFormvalue.subtopic);
       formData.append('Author', this.Author);
       formData.append('Type',pageFormvalue.type);
+      formData.append('District', pageFormvalue.district);
+      formData.append('Town',pageFormvalue.town);
       formData.append('Dis1',pageFormvalue.dis1);
       formData.append('Dis2',pageFormvalue.dis2);
       formData.append('Dis3',pageFormvalue.dis3);
       formData.append('DefImage', this.FileImage[0]);
       formData.append('Image', this.FileImage[1]);
       formData.append('Image', this.FileImage[2]);
-      console.log(formData.get('Id'))
+      formData.append('Location',pageFormvalue.location);
      
 
       
-      let apiUrl = 'test';
+      let apiUrl = 'file/test';
     
       this.repository.postFile(apiUrl, formData)
       

@@ -20,6 +20,8 @@
                             </div>
                             <input type="submit" name="" value="Login"/>
                           </form>
+                          <a (click)=ForgetPassword(loginForm.value)>forget password</a>
+                          
                           <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
                     </div>
                     <div class="col-md-9 register-right">
@@ -46,7 +48,7 @@
                                             <input formControlName="lname"  type="text" class="form-control" placeholder="Last Name *" value="" />
                                         </div>
                                        
-                                        
+                                        <h3 id="error">{{waiting}}</h3>   
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -59,10 +61,11 @@
                                             <input formControlName="confirmpassword" type="password" class="form-control"  placeholder="Confirm Password *" value="" />
                                         </div>
                                        
-                                    
+                                        
                                         <input [disabled]="!ownerForm.valid" type="submit" class="btnRegister"  value="Sign Up"/>
                                     </div>
                                 </div>
+                                
                               </form>
                               
                             </div>

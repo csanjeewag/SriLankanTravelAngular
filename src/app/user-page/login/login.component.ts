@@ -15,6 +15,7 @@ public msg:any;
   constructor(private router: Router,private route : ActivatedRoute,private repository:RepositoryService,private fb: FormBuilder) { }
   public signupForm:FormGroup;
   public loginForm:FormGroup;
+  public waiting :any;
 public result:any;
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -36,6 +37,7 @@ public result:any;
   }
 
   public signup( value){
+    this.waiting = "Please Wait, Cheking your email .. .";
    
     if (this.signupForm.valid) {
      
@@ -45,17 +47,19 @@ public result:any;
       formData.append('Email',value.email,);
       formData.append('Password',value.password);
 
-      let apiUrl = 'signup';
+      let apiUrl = 'user/signup';
     
       this.repository.postFile(apiUrl, formData)
       
         .subscribe(res =>  {
           this.result = res
           localStorage.setItem('token',this.result.token );
-           this.msg = "signup successfull!";
+           this.msg = "Please check your email, and register!";
+           this.waiting = "";
           this.router.navigate(['view/side/travel']);
                     },
           (error => {
+            this.waiting = "";
            // this.Message = "Adding Page Failed!";
            this.msg = "signup failed!";
           })
@@ -74,7 +78,7 @@ public result:any;
       formData.append('Email',value.email,);
       formData.append('Password',value.password);
 
-      let apiUrl = 'login';
+      let apiUrl = 'user/login';
     
       this.repository.postFile(apiUrl, formData)
       
@@ -93,4 +97,24 @@ public result:any;
     }
   }
 
+  public ForgetPassword(value){
+this.waiting = "waiting.. ."
+   let  email = value.email;
+   console.log(email)
+    let apiUrl = 'user/forgetpassword/'+email;
+    
+      this.repository.getData(apiUrl)
+      
+        .subscribe(res =>  {
+           this.msg = "Please check your email, and change password!";
+           this.waiting = "";
+                    },
+          (error => {
+            this.waiting = "";
+           // this.Message = "Adding Page Failed!";
+           this.msg = "forgotten password failed!";
+          })
+        )
+
+  }
 }

@@ -6,7 +6,7 @@
         <div class="sidenav" >
                 <br><br>
             <div *ngFor="let p of pages">
-                    <a (click)=gotopage(p.id)>{{p.topic}}</a>
+                    <a [class.click]="(ClickId==p.id)" (click)=gotopage(p.id)>{{p.topic}}</a>
             </div>
                 
                

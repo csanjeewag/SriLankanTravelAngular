@@ -13,16 +13,16 @@ export class PagesStateComponent implements OnInit {
 
   constructor(private repository:RepositoryService, private route: ActivatedRoute,private router: Router) { }
  public pages:any;
- public imageUrl : string = "http://localhost:5308/";
+ public imageUrl : string = this.repository.imageUrl;
   ngOnInit() {
     this.getpage();
   }
   
   public  getpage(){
-    this.repository.getData('getallpages')
+    this.repository.getData('file/getallpages')
     .subscribe(res => {
       this.pages = res ;
-    
+    console.log(res)
   },
     (error) => {
     
@@ -58,7 +58,7 @@ export class PagesStateComponent implements OnInit {
     this.repository.getData('activepage/'+id)
     .subscribe(res => {
      // this.router.navigate(['view/side/travel/'+id]);
-     location.reload();
+     window.location.reload();
   },
     (error) => {
     

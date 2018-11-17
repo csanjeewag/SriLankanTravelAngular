@@ -5,14 +5,7 @@
                     <div class="card-body">
                         <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5>
                       <form [formGroup]="pageForm" autocomplete="off" novalidate (ngSubmit)="createpage(pageForm.value)">
-                            <div class="form-group col-md-10 container">
-                                    <div class="form-group">
-                                            <label for="email" class="sr-only">DepartmentId</label>
-                                            <input class="form-control" formControlName="id" id="id" placeholder="Topic Id">
-                                            <em *ngIf="validateControl('id') && hasError('id', 'required')">*Id is required!</em>
-                                            
-                                        </div> 
-                            </div>
+                           
 
                             <div class="form-group col-md-10 container">
                                     <div class="form-group">
@@ -40,7 +33,31 @@
                                            
                                         </div>
                             </div>
-
+                            <div class="form-group col-md-10 container">
+                                <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                                <label for="key" class="sr-only">District </label>
+                                                <input type="text" formControlName="district" id="type" class="form-control" placeholder="District">
+                                                <em *ngIf="validateControl('district') && hasError('district', 'required')">*type is required</em>
+                                               
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                    <label for="key" class="sr-only">Town</label>
+                                                    <input type="text" formControlName="town" id="type" class="form-control" placeholder="City">
+                                                    <em *ngIf="validateControl('town') && hasError('town', 'required')">*type is required</em>
+                                                   
+                                                </div>
+                                </div>
+                                
+                             </div> 
+                             <div class="form-group col-md-10 container">
+                                    <div class="form-group">
+                                            <label for="email" class="sr-only">Location</label>
+                                            <input class="form-control" formControlName="location" id="location" placeholder="Location link in google map">
+                                            <em *ngIf="validateControl('location') && hasError('location', 'required')">*Id is required!</em>
+                                            
+                                        </div> 
+                            </div> 
                             <div class="form-group col-md-10 container">
                                     <div class="form-row">
                                             <div class="form-group col-md-8">

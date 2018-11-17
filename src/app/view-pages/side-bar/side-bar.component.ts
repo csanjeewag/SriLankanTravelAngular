@@ -13,7 +13,7 @@ export class SideBarComponent implements OnInit {
   constructor(private route : ActivatedRoute,private router: Router,private repository:RepositoryService,private fb: FormBuilder) { }
 public pages:any;
 public Id:any;
-
+public ClickId:any;
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -25,7 +25,7 @@ public Id:any;
 
 
   public  getpages(){
-    this.repository.getData('getpagestopic')
+    this.repository.getData('file/getpagestopic')
     .subscribe(res => {
       this.pages = res ;
   
@@ -36,7 +36,7 @@ public Id:any;
   }
 
   public gotopage(id){
-
+    this.ClickId = id
     this.router.navigate(['view/side/travel/'+id]);
   }
   
