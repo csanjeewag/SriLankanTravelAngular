@@ -27,11 +27,12 @@
 
                             <div class="form-group col-md-10 container">
                                     <div class="form-group">
-                                            <label for="key" class="sr-only">Type</label>
-                                            <input type="text" formControlName="type" id="type" class="form-control" placeholder="Type">
-                                            <em *ngIf="validateControl('type') && hasError('type', 'required')">*type is required</em>
-                                           
+                                         <select class="form-control" formControlName="type" placeholder="type" id="type"> 
+                                                <option value="" selected>Departments</option>
+                                                <option [value]="t.typeId" *ngFor="let t of types">{{t.typeName}}</option>
+                                            </select>
                                         </div>
+                                        
                             </div>
                             <div class="form-group col-md-10 container">
                                 <div class="form-row">

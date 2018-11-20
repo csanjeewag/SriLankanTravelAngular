@@ -22,7 +22,9 @@ export class AddViewComponent implements OnInit {
   public ImageUrl: Array<string> = [];
    public FileImage: Array<File> = [];
    public Author:any;
+   public types:any;
   ngOnInit() {
+    this.GetTypes();
 
     this.Author = this.auth.tokencheckId();
     
@@ -117,6 +119,18 @@ export class AddViewComponent implements OnInit {
 
   public redirect(){
     this.router.navigate(['view/side/travel']);
+  }
+
+  public GetTypes(){
+    this.repository.getData('subpart/gettype')
+    .subscribe(res => {
+      this.types = res ;
+      console.log(res)
+     
+  },
+    (error) => {
+    
+    })
   }
 }
 

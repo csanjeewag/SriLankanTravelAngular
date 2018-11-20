@@ -14,9 +14,11 @@ export class AllImagesComponent implements OnInit {
   public pages;
   public  imageUrl : string = this.repository.imageUrl;
 public Images:any;
+public Id :any;
   ngOnInit() {
     this.route.paramMap.subscribe((params:ParamMap)=>{
       let id = params.get('id');
+      this.Id = id;
       this.getimages(id);
     })
   }
@@ -41,7 +43,7 @@ public Images:any;
     this.repository.postFile(apiUrl, formData)
     
       .subscribe(res =>  {
-        location.reload();
+       this.getimages(this.Id);
                   },
         (error => {
           // this.Message="role Created Failed,Try Again!";
@@ -58,7 +60,7 @@ public Images:any;
     this.repository.postFile(apiUrl, formData)
     
       .subscribe(res =>  {
-        location.reload();
+        this.getimages(this.Id);
                   },
         (error => {
           // this.Message="role Created Failed,Try Again!";

@@ -30,7 +30,7 @@ export class UsersPageComponent implements OnInit {
   public ToAdmin(email){
     this.repository.getData('user/toadmin/'+email)
     .subscribe(res => {
-      location.reload();
+      this.getusers();
    
   },
     (error) => {
@@ -41,7 +41,7 @@ export class UsersPageComponent implements OnInit {
   public ToUser(email){
     this.repository.getData('user/touser/'+email)
     .subscribe(res => {
-      location.reload();
+      this.getusers();
    
   },
     (error) => {

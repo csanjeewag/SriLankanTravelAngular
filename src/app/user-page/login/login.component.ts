@@ -86,6 +86,7 @@ public result:any;
           this.result = res
          localStorage.setItem('token',this.result.token );
          this.msg = "login successfull!";
+         location.reload();
           this.router.navigate(['view/side/travel']);
 
                     },

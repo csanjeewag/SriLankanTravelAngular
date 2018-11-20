@@ -13,6 +13,8 @@ export class PagesStateComponent implements OnInit {
 
   constructor(private repository:RepositoryService, private route: ActivatedRoute,private router: Router) { }
  public pages:any;
+ public activeButton: any;
+ public deactiveButton: any;
  public imageUrl : string = this.repository.imageUrl;
   ngOnInit() {
     this.getpage();
@@ -44,10 +46,10 @@ export class PagesStateComponent implements OnInit {
   }
   public DeActivePage(id){
 
-    this.repository.getData('deactivepage/'+id)
+    this.repository.getData('file/deactivepage/'+id)
     .subscribe(res => {
-      //this.router.navigate(['view/side/travel/']);
-      location.reload();
+    //  this.activeButton = true;
+    this.getpage();
   },
     (error) => {
     
@@ -55,10 +57,10 @@ export class PagesStateComponent implements OnInit {
   }
   public ActivePage(id){
 
-    this.repository.getData('activepage/'+id)
+    this.repository.getData('file/activepage/'+id)
     .subscribe(res => {
-     // this.router.navigate(['view/side/travel/'+id]);
-     window.location.reload();
+    // this.activeButton = false;
+    this.getpage();
   },
     (error) => {
     
