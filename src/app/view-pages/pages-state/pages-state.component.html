@@ -4,7 +4,10 @@
   <div class="form-group col-md-10 container">
           <div class="card">
                   <h5 class="card-header"><h2>Sri Lankan Travelling</h2>   <img class="card-img-top" src="assets/back.jpeg" alt="Cinque Terre" id="headerImage"></h5>
-                 
+  
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddType">
+                    Add a new Type
+                  </button>
 <table class="table table-hover">
   <thead>
   <tr >
@@ -16,7 +19,7 @@
     <th> Update</th>
     <th>Active/Deactive</th>
     <th >All Images </th>
-   
+   <td>  </td>
   </tr></thead>
   <tbody>
   <tr *ngFor="let p of pages" >
@@ -29,14 +32,19 @@
 
     <td><button type="button" id="details" class="btn  btn-default" (click)=updatepage(p.id)>Update</button></td>
     
-          <td *ngIf="(p.isActive)"><button type="button" id="update" class="btn  btn-danger" (click)=DeActivePage(p.id)>Deactive</button></td>
-          <td *ngIf="!(p.isActive)"><button type="button" id="update" class="btn  btn-success" (click)=ActivePage(p.id)>Active</button></td>
+          <td *ngIf="(p.isActive) &&(p.id != LoadingId)"><button type="button" id="update" class="btn  btn-danger" (click)=DeActivePage(p.id)>Deactive</button></td>
+          <td *ngIf="!(p.isActive)&& (p.id != LoadingId)"><button type="button" id="update" class="btn  btn-success" (click)=ActivePage(p.id)>Active</button></td>
+          <td  *ngIf="(p.id == LoadingId)"> <img  class="card-img-top" src="assets/loading.gif" alt="Cinque Terre" id="loading"></td>
           <td ><button type="button" id="update" class="btn  btn-success" (click)=AllImage(p.id)>All Images</button></td>
           
-   
   </tr>
   </tbody>
 </table>
 </div>
 </div>
 </div>
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->

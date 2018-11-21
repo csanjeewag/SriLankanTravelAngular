@@ -15,6 +15,7 @@ export class AllImagesComponent implements OnInit {
   public  imageUrl : string = this.repository.imageUrl;
 public Images:any;
 public Id :any;
+public LoadingId:any;
   ngOnInit() {
     this.route.paramMap.subscribe((params:ParamMap)=>{
       let id = params.get('id');
@@ -27,7 +28,7 @@ public Id :any;
     this.repository.getData('file/allgetimage/'+id)
     .subscribe(res => {
       this.Images = res ;
-     
+      this.LoadingId = null;
   },
     (error) => {
     
@@ -35,6 +36,7 @@ public Id :any;
   }
 
   public DeActivePage(id){
+    this.LoadingId = id;
     let apiUrl = 'file/deactiveimage';
     
     let formData = new FormData();
@@ -52,6 +54,7 @@ public Id :any;
   
   }
   public ActivePage(id){
+    this.LoadingId = id;
     let apiUrl = 'file/activeimage';
     
     let formData = new FormData();

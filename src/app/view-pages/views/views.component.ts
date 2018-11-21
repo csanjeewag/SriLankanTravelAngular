@@ -21,8 +21,10 @@ export class ViewsComponent implements OnInit {
   public win :any;
   public click :any=0;
   public Author:any;
+  public Load:any;
 
   ngOnInit() {
+    this.Load = true;
     this.Author = this.auth.tokencheckId();
     this.route.paramMap.subscribe((params:ParamMap)=>{
       let id = params.get('id');
@@ -39,7 +41,8 @@ export class ViewsComponent implements OnInit {
     this.repository.getData('file/getpage/'+id)
     .subscribe(res => {
       this.page = res ;
-      console.log(res);
+      
+      
   },
     (error) => {
     
@@ -50,7 +53,8 @@ export class ViewsComponent implements OnInit {
     this.repository.getData('file/getimage/'+id)
     .subscribe(res => {
       this.images = res ;
-      console.log(res);
+      
+      this.Load = false;
   },
     (error) => {
     

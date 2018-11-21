@@ -12,6 +12,7 @@ export class SideBarComponent implements OnInit {
 
   constructor(private route : ActivatedRoute,private router: Router,private repository:RepositoryService,private fb: FormBuilder) { }
 public pages:any;
+public pg = ["bhb","fhvjrb","ghvjkgh"]
 public Id:any;
 public ClickId:any;
 

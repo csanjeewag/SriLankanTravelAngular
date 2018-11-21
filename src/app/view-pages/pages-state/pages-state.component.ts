@@ -13,6 +13,7 @@ export class PagesStateComponent implements OnInit {
 
   constructor(private repository:RepositoryService, private route: ActivatedRoute,private router: Router) { }
  public pages:any;
+ public LoadingId :any;
  public activeButton: any;
  public deactiveButton: any;
  public imageUrl : string = this.repository.imageUrl;
@@ -22,12 +23,13 @@ export class PagesStateComponent implements OnInit {
   
   public  getpage(){
     this.repository.getData('file/getallpages')
+   // this.http.get("").
     .subscribe(res => {
       this.pages = res ;
-    console.log(res)
+    this.LoadingId = null;
   },
     (error) => {
-    
+      this.LoadingId = null;
     })
   }
 
@@ -45,25 +47,26 @@ export class PagesStateComponent implements OnInit {
     this.router.navigate(['view/allimage/'+id]);
   }
   public DeActivePage(id){
-
+    this.LoadingId = id;
     this.repository.getData('file/deactivepage/'+id)
     .subscribe(res => {
     //  this.activeButton = true;
     this.getpage();
+    
   },
     (error) => {
-    
+     
     })
   }
   public ActivePage(id){
-
+    this.LoadingId = id;
     this.repository.getData('file/activepage/'+id)
     .subscribe(res => {
-    // this.activeButton = false;
     this.getpage();
+    
   },
     (error) => {
-    
+      
     })
   }
 }

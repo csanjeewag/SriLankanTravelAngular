@@ -13,7 +13,7 @@ export class UsersPageComponent implements OnInit {
 
   constructor(private repository:RepositoryService, private route: ActivatedRoute,private router: Router) { }
   public users:any;
-  
+  public LoadingId:any;
   ngOnInit() {
     this.getusers();
   }
@@ -21,13 +21,14 @@ export class UsersPageComponent implements OnInit {
     this.repository.getData('user/getuserdetails')
     .subscribe(res => {
       this.users = res ;
-   
+      this.LoadingId = null;
   },
     (error) => {
     
     })
   }
   public ToAdmin(email){
+    this.LoadingId = email;
     this.repository.getData('user/toadmin/'+email)
     .subscribe(res => {
       this.getusers();
@@ -39,6 +40,7 @@ export class UsersPageComponent implements OnInit {
   }
 
   public ToUser(email){
+    this.LoadingId = email;
     this.repository.getData('user/touser/'+email)
     .subscribe(res => {
       this.getusers();

@@ -24,9 +24,10 @@
     <td>{{u.role}}</td>
     <!-- <td (click)=gotopage(p.id)><img  class="card-img-top" [src]="imageUrl+p.imageId" alt="Cinque Terre" id="pageImage" (click)=gotopage(p.id)></td>
      -->
-          <td *ngIf="u.role == 'user'"><button type="button" id="update" class="btn  btn-danger" (click)=ToAdmin(u.email)>As Admin</button></td>
-          <td  *ngIf="u.role == 'admin'"><button type="button" id="update" class="btn  btn-success" (click)=ToUser(u.email)>As User</button></td>
-         
+          <td *ngIf="(u.role == 'user')&&(u.email != LoadingId)"><button type="button" id="update" class="btn  btn-danger" (click)=ToAdmin(u.email)>As Admin</button></td>
+          <td  *ngIf="(u.role == 'admin')&&(u.email != LoadingId)"><button type="button" id="update" class="btn  btn-success" (click)=ToUser(u.email)>As User</button></td>
+          <td  *ngIf="(u.email == LoadingId)"> <img  class="card-img-top" src="assets/loading1.gif" alt="Cinque Terre" id="loading"></td>
+          
    
   </tr>
   </tbody>

@@ -13,7 +13,7 @@
                             <div class="form-group col-md-3" *ngFor="let p of pages; index as i;">
                                <div class="card">
                                 <h5 class="card-header"><h3>{{p.topic}}</h3>   <img  class="card-img-top" [src]="imageUrl+p.imageId" alt="Cinque Terre" id="pageImage" (click)=gotopage(p.id)>{{p.subTopic}}
-
+                                    <img *ngIf="!(p.imageId)" class="card-img-top" src="assets/loading.gif" alt="Cinque Terre" id="headerImage">
                                 </h5>
                                 <div class="card-body">
                                     <h5 class="card-title"> </h5>
