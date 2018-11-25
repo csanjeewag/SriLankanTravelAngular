@@ -28,7 +28,7 @@
                             <div class="form-group col-md-10 container">
                                     <div class="form-group">
                                          <select class="form-control" formControlName="type" placeholder="type" id="type"> 
-                                                <option value="" selected>Departments</option>
+                                                <option value="" selected disabled hidden>Select Type</option>
                                                 <option [value]="t.typeId" *ngFor="let t of types">{{t.typeName}}</option>
                                             </select>
                                         </div>
@@ -37,10 +37,16 @@
                             <div class="form-group col-md-10 container">
                                 <div class="form-row">
                                         <div class="form-group col-md-6">
-                                                <label for="key" class="sr-only">District </label>
+                                                <!-- <label for="key" class="sr-only">District </label>
                                                 <input type="text" formControlName="district" id="type" class="form-control" placeholder="District">
                                                 <em *ngIf="validateControl('district') && hasError('district', 'required')">*type is required</em>
-                                               
+                                                -->
+                                                <div class="form-group">
+                                                    <select class="form-control" formControlName="district" placeholder="district" id="district"> 
+                                                           <option value="" selected disabled hidden>Select Type</option>
+                                                           <option [value]="d" *ngFor="let d of District">{{d}}</option>
+                                                       </select>
+                                                   </div>
                                             </div>
                                             <div class="form-group col-md-6">
                                                     <label for="key" class="sr-only">Town</label>
@@ -131,55 +137,3 @@
                   </div>
     </div>
 </div>
-<!-- <div class="card">
-    <h5 class="card-header"><h2> Create a new View</h2></h5>
-    <div class="card-body">
-        <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5>
-      <form [formGroup]="pageForm" autocomplete="off" novalidate (ngSubmit)="createpage(pageForm.value)">
-            <div class="form-group">
-                <label for="email" class="sr-only">DepartmentId</label>
-                <input class="form-control" formControlName="id" id="id" placeholder="Topic Id">
-                <em *ngIf="validateControl('id') && hasError('id', 'required')">*Email is required!</em>
-                <em *ngIf="validateControl('id') && hasError('id', 'email')">*This not a valid email!</em>
-        
-            </div>
-            <div class="form-group">
-                <label for="key" class="sr-only">Name</label>
-                <input type="text" formControlName="topic" id="topic" class="form-control" placeholder="Topic Name">
-                <em *ngIf="validateControl('topic') && hasError('topic', 'required')">*password is required</em>
-                <em *ngIf="validateControl('topic') && hasError('topic', 'maxlength')">*Maximum allowed length is 100 characters.</em>
-              
-            </div>
-            <div class="form-group">
-                <label for="key" class="sr-only">Dis1</label>
-                <input type="text" formControlName="type" id="type" class="form-control" placeholder="Type">
-                <em *ngIf="validateControl('type') && hasError('type', 'required')">*password is required</em>
-                <em *ngIf="validateControl('type') && hasError('type', 'maxlength')">*Maximum allowed length is 100 characters.</em>
-              
-            </div>
-            <div class="form-group">
-                <label for="key" class="sr-only">Dis1</label>
-                <input type="text" formControlName="dis" id="dis" class="form-control" placeholder="Dis 1 ">
-                <em *ngIf="validateControl('dis') && hasError('dis', 'required')">*password is required</em>
-                <em *ngIf="validateControl('dis') && hasError('dis', 'maxlength')">*Maximum allowed length is 100 characters.</em>
-              
-            </div>
-            <div class="form-group">
-                <label for="key" class="sr-only">Dis1</label>
-                <input type="file" (change)="onFileChange($event.target.files)"/>
-                
-            </div>
-            <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button>
-            <button type="submit" class="btn btn-success" [disabled]="!pageForm.valid">Create</button>
-            
-        </div> 
-        
-        
-        </form>
-      
-    </div>
-  </div>
-  
-  <img [src]="ImageUrl" style="width:250px;height:200px">
- -->

@@ -20,7 +20,7 @@
   <tr *ngFor="let u of users" >
     <td>{{u.fname}} {{u.lname}}</td>
     <td>{{u.email}}</td>
-    <td>{{u.startDate}}</td>
+    <td>{{u.startDate | date:'fullDate' }}</td>
     <td>{{u.role}}</td>
     <!-- <td (click)=gotopage(p.id)><img  class="card-img-top" [src]="imageUrl+p.imageId" alt="Cinque Terre" id="pageImage" (click)=gotopage(p.id)></td>
      -->

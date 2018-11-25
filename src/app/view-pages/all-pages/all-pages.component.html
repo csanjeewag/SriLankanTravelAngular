@@ -8,6 +8,56 @@
                     <div class="card-body">
                         <h5 class="card-title"></h5>
                         <div class="form-row">
+                                <div class="form-group col-md-6">
+                                        <input [(ngModel)]="filtertext"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Enter city or district that you like to visit." />
+                                </div> 
+                                <div class="form-group col-md-6">
+
+                                        <select (change)="GetPages($event.target.value)" class="form-control"  placeholder="type" id="type"> 
+                                                <option  value="" selected >Select All Types</option>
+                                                <option  [value]="t.typeId" *ngFor="let t of types"> {{t.typeName}}</option>
+                                            </select>
+                                </div>   
+                           
+
+                            <div class="form-group col-md-3" *ngFor="let p of pages | filter: filtertext" >
+                               <div class="card">
+                                <h5 class="card-header"><h3>{{p.topic}}</h3>   <img  class="card-img-top" [src]="imageUrl+p.imageId" alt="Cinque Terre" id="pageImage" (click)=gotopage(p.id)>{{p.subTopic}}
+                                    <img *ngIf="!(p.imageId)" class="card-img-top" src="assets/loading.gif" alt="Cinque Terre" id="headerImage">
+                                </h5>
+                                <div class="card-body">
+                                    <h5 class="card-title"> </h5>
+                                    <div id="place">
+                                            <h6>District: {{p.district}}</h6>
+                                            <h6>City:     {{p.town}}</h6>
+                                        </div>
+                                </div>
+                              </div>
+                              </div>
+                          </div>
+  
+                      </div>
+  
+            </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+<!-- 
+
+
+<div class="form-row">
+    <div class="form-group col-md-10">
+            <div class="card">
+                    <h5 class="card-header"><h2>Sri Lankan Travelling</h2>   <img class="card-img-top" src="assets/back.jpeg" alt="Cinque Terre" id="headerImage"> </h5>
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <div class="form-row">
         
 
                             <div class="form-group col-md-3" *ngFor="let p of pages; index as i;">
@@ -35,4 +85,4 @@
 
 
 
-
+ -->

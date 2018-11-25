@@ -27,19 +27,20 @@
     
                                 <div class="form-group col-md-10 container">
                                         <div class="form-group">
-                                                <label for="key" class="sr-only">Type</label>
-                                                <input type="text" formControlName="type" id="type" class="form-control" placeholder="Type">
-                                                <em *ngIf="validateControl('type') && hasError('type', 'required')">*Type is required</em>
-                                                
+                                             <select class="form-control" formControlName="type" placeholder="type" id="type"> 
+                                                        <option value="" selected disabled hidden>Types</option>
+                                                      <option [value]="t.typeId" *ngFor="let t of types">{{t.typeName}}</option>
+                                                </select>
                                             </div>
-                                </div>
+                                            
+                                        </div>
                                 <div class="form-group col-md-10 container">
                                                 <div class="form-row">
                                                         <div class="form-group col-md-6">
-                                                                <label for="key" class="sr-only">District </label>
-                                                                <input type="text" formControlName="district" id="type" class="form-control" placeholder="District">
-                                                                <em *ngIf="validateControl('district') && hasError('district', 'required')">*type is required</em>
-                                                               
+                                                                <select class="form-control" formControlName="district" placeholder="district" id="district"> 
+                                                                        <option value="" selected disabled hidden>Select Type</option>
+                                                                        <option [value]="d" *ngFor="let d of District">{{d}}</option>
+                                                                    </select>
                                                             </div>
                                                             <div class="form-group col-md-6">
                                                                     <label for="key" class="sr-only">Town</label>

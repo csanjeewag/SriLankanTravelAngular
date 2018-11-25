@@ -15,6 +15,9 @@ import { RegisterSignupComponent } from './register-signup/register-signup.compo
 import { AddTypeComponent } from './Type/add-type/add-type.component';
 import { UpdateTypeComponent } from './Type/update-type/update-type.component';
 import { ViewTypeComponent } from './Type/view-type/view-type.component';
+import { FilterPipePipe } from './filter-pipe.pipe';
+import { FilterPipes } from './filter-pipe.pipe';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -34,6 +37,6 @@ import { ViewTypeComponent } from './Type/view-type/view-type.component';
       ]}
     ])
   ],
-  declarations: [SideBarComponent, ViewsComponent, AddViewComponent, UploadPageComponent, UpdatePageComponent, AllPagesComponent, PagesStateComponent, AllImagesComponent, RegisterSignupComponent, AddTypeComponent, UpdateTypeComponent, ViewTypeComponent]
+  declarations: [SideBarComponent, ViewsComponent, AddViewComponent, UploadPageComponent, UpdatePageComponent, AllPagesComponent, PagesStateComponent, AllImagesComponent, RegisterSignupComponent, AddTypeComponent, UpdateTypeComponent, ViewTypeComponent, FilterPipePipe,FilterPipes]
 })
 export class ViewPagesModule { }

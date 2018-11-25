@@ -15,6 +15,7 @@ export class AddViewComponent implements OnInit {
 
   constructor(private auth:AuthServiceService, private router: Router,private route : ActivatedRoute,private repository:RepositoryService,private fb: FormBuilder) { }
 
+  public District = ["Gampaha","Colombo","Kaluthara","Matara","Galle","Hambantota","Anuradhapura","Polonnaruwa","Matale","Kandy","NuwaraEliya","Kegalle","Ratnapura","Badulla","Monaragala","Hambantota","Trincomalee","Batticaloa","Ampara","Jaffna","Kilinochchi","Mannar","Mullaitivu","Vavuniya"];
   public pageForm:FormGroup;
   public pageForms:FormGroup;
   public formGroup;
@@ -122,7 +123,7 @@ export class AddViewComponent implements OnInit {
   }
 
   public GetTypes(){
-    this.repository.getData('subpart/gettype')
+    this.repository.getData('subpart/gettypes')
     .subscribe(res => {
       this.types = res ;
       console.log(res)
