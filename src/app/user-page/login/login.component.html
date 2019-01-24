@@ -6,7 +6,7 @@
 <div class="container register">
         <h3 id="error"><b>{{msg}}</b></h3>
                 <div class="row">
-                    <div class="col-md-3 register-left">
+                    <div class="col-md-3 register-left" >
                         <!-- <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/> -->
                         <h3>Loggin Here</h3>
                         <form [formGroup]="loginForm" autocomplete="off" novalidate (ngSubmit)="login(loginForm.value)">
@@ -29,12 +29,10 @@
                             <li class="nav-item">
                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">User</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Admin</a>
-                            </li>
+                          
                         </ul>
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab" >
                                 <h3 class="register-heading">Regiter as a User!</h3>
                                 
                                 <form [formGroup]="signupForm" autocomplete="off" novalidate (ngSubmit)="signup(signupForm.value)">
@@ -42,10 +40,13 @@
                                 <div class="row register-form">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input formControlName="fname" type="text" class="form-control" placeholder="First Name *" value="" />
+                                            <!-- <label for="fname">First Name *</label> -->
+                                            <input formControlName="fname" type="text" class="form-control" placeholder="First Name *" required/>
+                                            <em *ngIf="validateControl('fname') && hasError('fname', 'required')">*first name is required</em>
                                         </div>
                                         <div class="form-group">
                                             <input formControlName="lname"  type="text" class="form-control" placeholder="Last Name *" value="" />
+                                            <em *ngIf="validateControl('lname') && hasError('lname', 'required')">*last name is required</em>
                                         </div>
                                        
                                         <h3 id="error">{{waiting}}</h3>   
@@ -53,19 +54,28 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <input formControlName="email"  type="email" class="form-control" placeholder="Your Email *" value="" />
+                                            <em *ngIf="validateControl('email') && hasError('email', 'required')">*email is required</em>
                                         </div>
                                         <div class="form-group">
                                             <input formControlName="password"  type="password" class="form-control" placeholder="Password *" value="" />
+                                            <em *ngIf="validateControl('password') && hasError('password', 'required')">*password is required</em>
+                                         
                                         </div>
                                         <div class="form-group">
                                             <input formControlName="confirmpassword" type="password" class="form-control"  placeholder="Confirm Password *" value="" />
+                                            <em *ngIf="validateControl('confirmpassword') && hasError('confirmpassword', 'required')">* confirm password is required</em>
+                                            <em *ngIf="((signupForm.errors?.ismatch) )">*confirm password is not match</em> 
+                                            
                                         </div>
                                        
                                         
-                                        <input [disabled]="!ownerForm.valid" type="submit" class="btnRegister"  value="Sign Up"/>
+                                        <input [disabled]="!signupForm.valid"  type="submit" class="btnRegister"  value="Sign Up"/>
+
                                     </div>
                                 </div>
                                 
+                                
+
                               </form>
                               
                             </div>

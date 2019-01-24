@@ -2,3 +2,27 @@
     height: 40px;
     width: 80px;
 }
+#navbar{
+    background-color:rgb(15, 31, 12);
+    color: rgb(124, 226, 129);
+    position: sticky;
+    top: 0;
+ 
+    width: 100%;
+    z-index: +1;
+}
+a{
+    color: rgb(124, 226, 129); 
+}
+#rightcompo {
+    color: rgb(124, 226, 129);
+    background-color:rgb(15, 31, 12);
+}
+#rightcompo a{
+    color: rgb(124, 226, 129);
+    background-color:rgb(15, 31, 12);
+}
+#rightcompo button{
+    color: rgb(124, 226, 129);
+    background-color:rgb(15, 31, 12);
+}

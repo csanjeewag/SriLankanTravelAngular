@@ -2,7 +2,7 @@
     height: 100%;
     
     left: 0;
-    background-color: rgb(68, 70, 77);
+    background-color: rgb(9, 43, 1);
     overflow-x: show;
     
 }
@@ -12,7 +12,7 @@
     text-decoration: none;
     font-size: 25px;
     text-align: left;
-    color: #0f0f0f;
+    color: #fafafa;
     display: block;
 }
 
@@ -21,5 +21,12 @@
 }
 .click{
     
-    background-color: rgb(139, 136, 136);
+    background-color: rgb(16, 145, 12);
+}
+#filter{
+    background-color: rgb(155, 245, 189);
+    border-radius: 3em;
+}
+#partB{
+    background-color: #2f4629;
 }

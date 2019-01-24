@@ -30,10 +30,30 @@ public result:any;
       email: new FormControl('',[Validators.required,Validators.email]),
       password: new FormControl('',[Validators.required]),
       confirmpassword: new FormControl('',[Validators.required]),
-     })
+     },{ validators: isvalidconfirmpassword })
 
    
 
+  }
+
+  public validateControl(controlName: string) {
+    if (this.signupForm.controls[controlName].invalid && this.signupForm.controls[controlName].touched)
+      return true;
+
+    return false;
+  }
+
+  public hasError(controlName: string, errorName: string) {
+    if (this.signupForm.controls[controlName].hasError(errorName))
+      return true;
+
+    return false;
+  }
+  public touchanddirty(controlName: string) {
+    if (this.signupForm.controls[controlName].value !=="" && this.signupForm.controls[controlName].touched )
+      return true;
+
+    return false;
   }
 
   public signup( value){
@@ -119,3 +139,10 @@ this.waiting = "waiting.. ."
 
   }
 }
+
+export const isvalidconfirmpassword: ValidatorFn = (control: FormGroup): ValidationErrors | null => {
+  const password = control.get('password');
+  const confirmpassword = control.get('confirmpassword');
+  
+  return password && confirmpassword && password.value !== confirmpassword.value && confirmpassword.value !== ""? { 'ismatch': true } : null;
+};

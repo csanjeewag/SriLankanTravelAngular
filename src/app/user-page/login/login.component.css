@@ -93,15 +93,18 @@
     margin-bottom: -15%;
     color: #495057;
 }
- .ng-valid:not(form) {
-    border-left: 10px solid rgb(66, 111, 169); /* green */
+ /* .ng-valid:not(form) {
+    border-left: 10px solid rgb(66, 111, 169); 
     background-color: rgb(182, 253, 185);
   }
   
   .ng-invalid:not(form)  {
-    border-left: 10px solid #fd8c8b; /* red */
+    border-left: 10px solid #fd8c8b; 
     background-color: #ffe2e2;
-  }
+  } */
   #error{
       color: #da1310;
+  }
+  em{
+      color:red;
   }

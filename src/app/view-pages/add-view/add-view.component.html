@@ -1,4 +1,4 @@
-<div class="form-row">
+<!-- <div class="form-row">
     <div class="form-group col-md-10 container">
             <div class="card">
                     <h5 class="card-header"><h2> Create a new View</h2></h5>
@@ -37,10 +37,7 @@
                             <div class="form-group col-md-10 container">
                                 <div class="form-row">
                                         <div class="form-group col-md-6">
-                                                <!-- <label for="key" class="sr-only">District </label>
-                                                <input type="text" formControlName="district" id="type" class="form-control" placeholder="District">
-                                                <em *ngIf="validateControl('district') && hasError('district', 'required')">*type is required</em>
-                                                -->
+                                               
                                                 <div class="form-group">
                                                     <select class="form-control" formControlName="district" placeholder="district" id="district"> 
                                                            <option value="" selected disabled hidden>Select Type</option>
@@ -70,7 +67,7 @@
                                             <div class="form-group col-md-8">
                                                       
                                                     <label for="comment"><b>Discription 1:</b></label>
-                                                    <!-- <input rows="4" cols="50" type="text" formControlName="dis1" id="dis1" class="form-control" placeholder="Discription 1 "> -->
+                                                   
                                                     <textarea  class="form-control" rows="10" id="comment"formControlName="dis1" placeholder="Discription 1 " > </textarea>
                                                     <em *ngIf="validateControl('dis1') && hasError('dis1', 'required')">*Discription is required</em>
                                                    
@@ -93,7 +90,7 @@
                                             <div class="form-group col-md-8">
                                                       
                                                     <label for="comment"><b>Discription 2:</b></label>
-                                                    <!-- <input rows="4" cols="50" type="text" formControlName="dis1" id="dis1" class="form-control" placeholder="Discription 1 "> -->
+                                                   
                                                     <textarea  class="form-control" rows="10" id="comment"formControlName="dis2" placeholder="Discription 2 " > </textarea>
                                                     <em *ngIf="validateControl('dis2') && hasError('dis2', 'required')">*password is required</em>
                                                     <em *ngIf="validateControl('dis2') && hasError('dis2', 'maxlength')">*Maximum allowed length is 100 characters.</em>
@@ -112,7 +109,7 @@
                                             <div class="form-group col-md-8">
                                                       
                                                     <label for="comment"><b>Discription 3:</b></label>
-                                                    <!-- <input rows="4" cols="50" type="text" formControlName="dis1" id="dis1" class="form-control" placeholder="Discription 1 "> -->
+                                                   
                                                     <textarea  class="form-control" rows="10" id="comment"formControlName="dis3" placeholder="Discription 3 " > </textarea>
                                                     <em *ngIf="validateControl('dis3') && hasError('dis3', 'required')">*password is required</em>
                                                     <em *ngIf="validateControl('dis3') && hasError('dis3', 'maxlength')">*Maximum allowed length is 100 characters.</em>
@@ -136,4 +133,170 @@
                     </div>
                   </div>
     </div>
-</div>
+</div> -->
+
+
+<div >
+        
+                <div  class="wrapper fadeInDown col-md-10 col-lg-8 col-sm-12 container">
+                  <div id="formContent">
+                    <!-- Tabs Titles -->
+                
+                    <!-- Icon -->
+                    <div class="fadeIn first">
+                      <h1>Create new page</h1>
+                    </div>
+                    <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5>
+                    <!-- Sign up Form -->
+                  
+                    <form [formGroup]="pageForm" autocomplete="off" novalidate (ngSubmit)="createpage(pageForm.value)">
+                           
+
+                                <div class="form-group col-md-10 container">
+                                        <div class="form-group">
+                                                <label for="key" class="sr-only">Name</label>
+                                                <input type="text" formControlName="topic" id="topic" class="form-control" required>
+                                                <label > Topic Name</label>
+                                                <em *ngIf="validateControl('topic') && hasError('topic', 'required')">*Topic Name is required</em>
+                                               
+                                            </div>
+                                </div>
+                                
+                                <div class="form-group col-md-10 container">
+                                        <div class="form-group">
+                                                <label for="key" class="sr-only">Name</label>
+                                                <input type="text" formControlName="subtopic" id="subtopic" class="form-control" required>
+                                                <label > Sub Topic Name</label>
+                                                <em *ngIf="validateControl('subtopic') && hasError('subtopic', 'required')">*Sub Topic is required</em>
+                                               
+                                            </div>
+                                </div>
+    
+                                <div class="form-group col-md-10 container">
+                                        <div class="form-group">
+                                                        <label id="seletelabel" for="type" > select type</label>
+                                             <select id="seletelabel" class="form-control" formControlName="type" id="type" > 
+                                                    <option value="" selected disabled hidden>Select Type</option>
+                                                    <option [value]="t.typeId" *ngFor="let t of types">{{t.typeName}}</option>
+                                                </select>
+                                            </div>
+                                            
+                                </div>
+                                <div class="form-group col-md-10 container">
+                                    <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                    <!-- <label for="key" class="sr-only">District </label>
+                                                    <input type="text" formControlName="district" id="type" class="form-control" placeholder="District">
+                                                    <em *ngIf="validateControl('district') && hasError('district', 'required')">*type is required</em>
+                                                    -->
+                                                    <div class="form-group">
+                                                                <label id="seletelabel" for="type" > Select district</label>
+                                                        <select class="form-control" formControlName="district" placeholder="district" id="district"> 
+                                                               <option value="" selected disabled hidden>Select Type</option>
+                                                               <option [value]="d" *ngFor="let d of District">{{d}}</option>
+                                                           </select>
+                                                       </div>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                        
+                                                        <input type="text" formControlName="town" id="type" class="form-control" required>
+                                                        <label > City</label>
+                                                        <em *ngIf="validateControl('town') && hasError('town', 'required')">*type is required</em>
+                                                       
+                                                    </div>
+                                    </div>
+                                    
+                                 </div> 
+                                 <div class="form-group col-md-10 container">
+                                        <div class="form-group">
+                                                <label for="email" class="sr-only">Location</label>
+                                                <input class="form-control" formControlName="location" id="location" required>
+                                                <label > Location link in google map</label>
+                                                <em *ngIf="validateControl('location') && hasError('location', 'required')">*location is required!</em>
+                                                
+                                            </div> 
+                                </div> 
+                                <div class="form-group col-md-10 container">
+                                        <div class="form-row">
+                                                <div class="form-group col-md-8">
+                                                          
+                                                        <label  id="seletelabel" for="comment"><b>Discription 1:</b></label>
+                                                        <!-- <input rows="4" cols="50" type="text" formControlName="dis1" id="dis1" class="form-control" placeholder="Discription 1 "> -->
+                                                        <textarea  class="form-control" rows="10" id="comment"formControlName="dis1" > </textarea>
+                                                        <em *ngIf="validateControl('dis1') && hasError('dis1', 'required')">*Discription is required</em>
+                                                       
+                                                              
+                                                      </div>
+                                                      <div class="form-group col-md-4">
+                                                            <input formControlName="image" type="file" (change)="onFileChange($event.target.files,0)"/>
+                                                               <img *ngIf="ImageUrl[0]" [src]="ImageUrl[0]" style="width:250px; height:200px"> 
+                                                               <em *ngIf="validateControl('image') && hasError('image', 'required')">*Insert image</em>
+                                                       
+                                                      </div>
+                                         </div>  
+                                </div>
+    
+                                
+                                   
+                               
+                                <div class="form-group col-md-10 container">
+                                        <div class="form-row">
+                                                <div class="form-group col-md-8">
+                                                          
+                                                        <label id="seletelabel" for="comment"><b>Discription 2:</b></label>
+                                                        <!-- <input rows="4" cols="50" type="text" formControlName="dis1" id="dis1" class="form-control" placeholder="Discription 1 "> -->
+                                                        <textarea  class="form-control" rows="10" id="comment"formControlName="dis2"  > </textarea>
+                                                        <em *ngIf="validateControl('dis2') && hasError('dis2', 'required')">*password is required</em>
+                                                        <em *ngIf="validateControl('dis2') && hasError('dis2', 'maxlength')">*Maximum allowed length is 100 characters.</em>
+                                                         
+                                                              
+                                                      </div>
+                                                      <div class="form-group col-md-4">
+                                                            <input type="file" (change)="onFileChange($event.target.files,1)"/>
+                                                               <img *ngIf="ImageUrl[1]" [src]="ImageUrl[1]" style="width:250px; height:200px"> 
+                                                      </div>
+                                         </div>  
+                                </div>
+    
+                                <div class="form-group col-md-10 container">
+                                        <div class="form-row">
+                                                <div class="form-group col-md-8">
+                                                          
+                                                        <label id="seletelabel" for="comment"><b>Discription 3:</b></label>
+                                                        <!-- <input rows="4" cols="50" type="text" formControlName="dis1" id="dis1" class="form-control" placeholder="Discription 1 "> -->
+                                                        <textarea  class="form-control" rows="10" id="comment"formControlName="dis3"  > </textarea>
+                                                        <em *ngIf="validateControl('dis3') && hasError('dis3', 'required')">*password is required</em>
+                                                        <em *ngIf="validateControl('dis3') && hasError('dis3', 'maxlength')">*Maximum allowed length is 100 characters.</em>
+                                                         
+                                                              
+                                                      </div>
+                                                      <div class="form-group col-md-4" >
+                                                            <input type="file" (change)="onFileChange($event.target.files,2)" />
+                                                               <img *ngIf="ImageUrl[2]" [src]="ImageUrl[2]" style="width:250px; height:200px"> 
+                                                      </div>
+                                         </div>  
+                                </div>
+    
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-danger" (click)="redirect()">Cancel</button>
+                                        <button type="submit" class="btn btn-success" [disabled]="!pageForm.valid">Create New page</button>
+                                        
+                                    </div> 
+                            </form>
+                        <!-- <div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div> -->
+                        
+                    <!-- Remind Passowrd -->
+                    <div id="formFooter">
+                      <a  id="crateAccountlink"  class="underlineHover" ></a>
+                     
+                    </div>
+                
+                  </div>
+                </div>
+            
+            
+                </div>
+            
+            
+            
+        

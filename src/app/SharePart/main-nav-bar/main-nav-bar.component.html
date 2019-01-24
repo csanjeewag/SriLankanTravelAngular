@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg " id="navbar">
   <a class="navbar-brand" routerLink="/view/side/travel"><img src="assets/back.jpeg" id="navbarimage"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -25,6 +25,7 @@
       
 
     </ul>
+    <ul id="rightcompo">
      <li class="nav-item dropdown" *ngIf="islogged" >
       <button class="nav-link dropdown-toggle btn btn-outline-secondary" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
        {{UserName}}
@@ -38,7 +39,7 @@
     <li class="nav-item dropdown" *ngIf="!(islogged)" >
       <a class="nav-link" routerLink="/user/login" routerLinkActive="active ">Sign Up</a>
      
-    </li>
+    </li></ul>
     <span class="navbar-text">
    </span>
   </div>
