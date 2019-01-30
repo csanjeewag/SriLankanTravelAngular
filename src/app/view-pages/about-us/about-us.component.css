@@ -1,0 +1,11 @@
+#headerImage{
+    height: 150px;
+    z-index: -1;
+}
+#pageImage{
+    width: 100%;
+}
+#loading{
+    width: 35px;
+    height: 35px;
+}

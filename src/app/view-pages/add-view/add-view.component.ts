@@ -94,6 +94,7 @@ export class AddViewComponent implements OnInit {
       this.repository.postFile(apiUrl, formData)
       
         .subscribe(res =>  {
+          alert("new page was created, Thank you!");
           this.router.navigate(['view/side/travel']);
                     },
           (error => {
@@ -113,7 +114,7 @@ export class AddViewComponent implements OnInit {
     reader.onload = (event:any) => {
        this.ImageUrl[id] = event.target.result;
 
-       console.log(event.target.result)
+  
     }
      reader.readAsDataURL(this.FileImage[id]);
   }
@@ -126,7 +127,7 @@ export class AddViewComponent implements OnInit {
     this.repository.getData('subpart/gettypes')
     .subscribe(res => {
       this.types = res ;
-      console.log(res)
+     
      
   },
     (error) => {

@@ -17,9 +17,13 @@ export class RepositoryService {
   public urlAddress : string = environment.employee_url;
   public islogged:any;
   public imageUrl : string = environment.imageUrl ;
+  public pageId:any;
 
   constructor( private http: HttpClient) { }
 
+  public setpageId(id){
+    this.pageId = id;
+  }
   public getData(route: string) {
     return this.http.get(this.createCompleteRoute(route, this.urlAddress),this.generateHeaders());
     

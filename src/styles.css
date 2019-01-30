@@ -1,6 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 /************************************ css for forms***********************************/
-
+.btn{
+  background-color: rgb(12, 66, 2);
+  color: rgb(139, 247, 157);
+}
+.btn:hover{
+  background-color: rgb(33, 153, 9);
+  color:  rgb(1, 49, 9);
+}
 :root{
   --main: #333;
   --bg: #c1cbf8;
@@ -77,13 +84,14 @@ em{
   }
   label {
     font-stretch: wider;
-    color: rgb(5, 65, 3);
+    color: rgb(2, 26, 1);
     font-size: 18px;
     position: absolute;
     pointer-events: none;
     left: 1em;
     top: 10px;
     transition: 2s ease all;
+    background-color: #f8f8f8;
   }
   
   /* Label Active State */

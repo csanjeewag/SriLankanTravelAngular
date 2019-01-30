@@ -1,5 +1,5 @@
 .register{
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    background: -webkit-linear-gradient(left, #35af31, #094601);
     margin-top: 3%;
     padding: 3%;
 }
@@ -13,7 +13,7 @@
     border-radius: 1.5rem;
     padding: 2%;
     width: 60%;
-    background: #f8f9fa;
+    background: #a0ec91;
     font-weight: bold;
     color: #383d41;
     margin-top: 30%;
@@ -21,7 +21,7 @@
     cursor: pointer;
 }
 .register-right{
-    background: #f8f9fa;
+    background: #a0ec91;
     border-top-left-radius: 10% 50%;
     border-bottom-left-radius: 10% 50%;
 }
@@ -55,8 +55,8 @@
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
-    background: #0062cc;
-    color: #fff;
+    background: #3acc00;
+    color: #a0ec91;
     font-weight: 600;
     width: 50%;
     cursor: pointer;
@@ -64,7 +64,7 @@
 .register .nav-tabs{
     margin-top: 3%;
     border: none;
-    background: #0062cc;
+    background: #22cc00;
     border-radius: 1.5rem;
     width: 28%;
     float: right;
@@ -73,7 +73,7 @@
     padding: 2%;
     height: 34px;
     font-weight: 600;
-    color: #fff;
+    color: #a0ec91;
     border-top-right-radius: 1.5rem;
     border-bottom-right-radius: 1.5rem;
 }
@@ -82,8 +82,8 @@
 }
 .register .nav-tabs .nav-link.active{
     width: 100px;
-    color: #0062cc;
-    border: 2px solid #0062cc;
+    color: #3acc00;
+    border: 2px solid #3acc00;
     border-top-left-radius: 1.5rem;
     border-bottom-left-radius: 1.5rem;
 }

@@ -17,6 +17,8 @@ import { UpdateTypeComponent } from './Type/update-type/update-type.component';
 import { ViewTypeComponent } from './Type/view-type/view-type.component';
 import { FilterPipePipe } from './filter-pipe.pipe';
 import { FilterPipes } from './filter-pipe.pipe';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { CommentComponent } from './comment/comment.component';
 
 @NgModule({
   imports: [
@@ -24,8 +26,10 @@ import { FilterPipes } from './filter-pipe.pipe';
     ReactiveFormsModule,
     FormsModule,
     RouterModule.forChild([
-      { path: 'addview', component: AddViewComponent,canActivate:[AuthGuradGuard],data: { expectedRole1: 'user',expectedRole2: 'admin'}},
-      { path: 'admin', component: PagesStateComponent,canActivate:[AuthGuradGuard],data: { expectedRole1: 'admin', expectedRole2: 'user'}},
+      { path: 'c', component: CommentComponent},
+      { path: 'aboutus', component: AboutUsComponent},
+      { path: 'addview', component: AddViewComponent},
+      { path: 'admin', component: PagesStateComponent,canActivate:[AuthGuradGuard],data: { expectedRole1: 'admin'}},
       { path: 'updateview/:id', component: UpdatePageComponent,canActivate:[AuthGuradGuard],data: { expectedRole2: 'admin'}},
       { path: 'allimage/:id', component: AllImagesComponent,canActivate:[AuthGuradGuard],data: { expectedRole2: 'admin'}},
       { path: 'type', component: ViewTypeComponent},
@@ -37,6 +41,6 @@ import { FilterPipes } from './filter-pipe.pipe';
       ]}
     ])
   ],
-  declarations: [SideBarComponent, ViewsComponent, AddViewComponent, UploadPageComponent, UpdatePageComponent, AllPagesComponent, PagesStateComponent, AllImagesComponent, RegisterSignupComponent, AddTypeComponent, UpdateTypeComponent, ViewTypeComponent, FilterPipePipe,FilterPipes]
+  declarations: [SideBarComponent, ViewsComponent, AddViewComponent, UploadPageComponent, UpdatePageComponent, AllPagesComponent, PagesStateComponent, AllImagesComponent, RegisterSignupComponent, AddTypeComponent, UpdateTypeComponent, ViewTypeComponent, FilterPipePipe,FilterPipes, AboutUsComponent, CommentComponent]
 })
 export class ViewPagesModule { }
